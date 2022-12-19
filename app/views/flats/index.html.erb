@@ -1,4 +1,13 @@
 <div class="container">
   <h1>All flats</h1>
-  <%= %>
+  <ul>
+    <% @flats.each do |flat| %>
+      <li>
+        <h3><%= flat.title %></h3>
+        <h4>Hôte : <%= flat.user.first_name %> <%= flat.user.last_name %></h4>
+        <p><%= flat.description %></p>
+        <p><%= flat.price %> EUR</p>
+      </li>
+    <% end %>
+  </ul>
 </div>
