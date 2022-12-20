@@ -2,10 +2,12 @@ class FlatsController < ApplicationController
 
   def index
     if params[:query].present?
-      @flats = Flat.where("title ILIKE ?", "%#{params[:query]}%")
+      sql_query = "title ILIKE :query OR address ILIKE :query OR description ILIKE :query"
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
     else
     @flats = Flat.all
     end
+
     @flats = Flat.where.not(latitude: nil, longitude: nil)
     @markers = @flats.map do |flat|
       {
