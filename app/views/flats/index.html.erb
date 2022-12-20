@@ -1,4 +1,21 @@
 <div class="container">
   <h1>All flats</h1>
-  <%= %>
+  <div>
+    <ul class="cards">
+      <% @flats.each do |flat| %>
+        <li>
+        <%= link_to flat_path(flat), class: "flat-card" do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <div class="flat-info">
+              <h3><%= flat.title%></h3>
+              <h4>Hôte : <%= flat.user.first_name %> <%= flat.user.last_name %></h4>
+            </div>
+          </div>
+            <p><%= flat.description %></p><p><strong><%= flat.price %> EUR par nuit</strong></p>
+            <p><%= flat.address %></p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
