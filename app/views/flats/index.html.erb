@@ -11,7 +11,7 @@
               <h4>Hôte : <%= flat.user.first_name %> <%= flat.user.last_name %></h4>
             </div>
           </div>
-            <p><%= flat.description %></p><p><strong><%= flat.price %> EUR par nuit</strong></p>
+            <p><%= flat.description %></p><p><strong><%= humanized_money_with_symbol(flat.price) %> par nuit</strong></p>
             <p><%= flat.address %></p>
           <% end %>
         </li>
