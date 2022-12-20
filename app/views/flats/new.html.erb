@@ -1,0 +1,14 @@
+<div class="container">
+  <br>
+  <h1>Ajoutez votre appartement</h1>
+  <br>
+  <%= simple_form_for @flat do |f| %>
+    <%= f.input :title, label: 'Titre' %>
+    <%= f.input :description, label: 'Une description' %>
+    <%= f.input :address, label: 'Addresse' %>
+    <%= f.input :price, label: 'Prix pour une nuit' %>
+    <%= f.input :photo, as: :file, input_html: { multiple: true } %>
+    <%= f.button :submit, "Ajouter mon appartement", class: "btn btn-primary" %>
+    <%= link_to "Retour à l'acceuil", root_path, class: "btn btn-warning" %>
+  <% end %>
+</div>
