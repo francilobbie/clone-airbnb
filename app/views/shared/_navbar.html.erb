@@ -8,9 +8,15 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="search">
-      <input class="search-input" type="text" placeholder="Recherche">
+      <%= form_with url: @flats_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
