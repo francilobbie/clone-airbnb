@@ -8,6 +8,6 @@ class Flat < ApplicationRecord
 
   monetize :price_cents, allow_nil: true
 
-  has_many_attached :photos
+  has_many_attached :photos, dependent: :destroy
 
 end
