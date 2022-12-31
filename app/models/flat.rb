@@ -12,8 +12,8 @@ class Flat < ApplicationRecord
 
   has_one_attached :photo, dependent: :destroy
 
-  def average_rating
-    reviews.average(:rating).to_i
-  end
+  # def average_rating
+  #   reviews.average(:rating).to_i
+  # end
 
 end
