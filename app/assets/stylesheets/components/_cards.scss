@@ -24,6 +24,13 @@
 }
 
 
+.default-image {
+  height: 600px;
+  width: 400px;
+  object-fit: cover;
+}
+
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

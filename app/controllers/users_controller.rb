@@ -5,9 +5,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def my_missions
-    @orders = Order.where(user: current_user)
-  end
 
   def edit
     @user = User.find(params[:id])

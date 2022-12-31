@@ -1,9 +1,20 @@
 <div class="container">
   <h1><%= @flat.title %></h1>
   <h3>Mise à disposition par : <%= @flat.user.first_name %> <%= @flat.user.last_name %></h3>
+
+      <%# <% @flat.photos.each do |photo| %>
+        <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <% end %>
+
+      <% if @flat.photo.key? %>
+        <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+
   <p><%= @flat.description %></p>
   <p><%= @flat.address %></p>
   <p><%= humanized_money_with_symbol(@flat.price) %> par nuit</p>
   <p><%= link_to "Louer", "#", class: "btn btn-primary py-2 px-3" %></p>
   <p><%= link_to "Revenir à l'acceuil", root_path, class: "btn btn-primary" %></p>
+  <p><%= link_to "Mettre à jour", edit_flat_path(@flat) %></p>
+  <%# <%= raise %>
 </div>

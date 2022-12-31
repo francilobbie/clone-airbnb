@@ -53,9 +53,13 @@ gem "geocoder"
 gem "pg_search"
 gem 'money-rails', '~>1.12'
 gem "cloudinary"
+gem 'faker'
 
 
 ############################## My gems ##############################################
+
+
+
 
 gem "devise"
 gem "autoprefixer-rails"
