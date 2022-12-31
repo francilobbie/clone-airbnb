@@ -2,8 +2,12 @@
   <h1><%= @flat.title %></h1>
   <h3>Mise à disposition par : <%= @flat.user.first_name %> <%= @flat.user.last_name %></h3>
 
-      <% @flat.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <% @flat.photos.each do |photo| %>
+        <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <% end %>
+
+      <% if @flat.photo.key? %>
+        <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
 
   <p><%= @flat.description %></p>

@@ -5,14 +5,18 @@
       <% @flats.each do |flat| %>
         <li>
         <%= link_to flat_path(flat), class: "flat-card" do %>
+          <% if flat.photo.key? %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path flat.photo.key, crop: :fill %>')">
+          <% else %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <% end %>
             <div class="flat-info">
               <h3><%= flat.title%></h3>
               <h4>Hôte : <%= flat.user.first_name %> <%= flat.user.last_name %></h4>
             </div>
           </div>
             <p><%= flat.description %></p><p><strong><%= humanized_money_with_symbol(flat.price) %> par nuit</strong></p>
-            <p><%= flat.address %></p>
+            <p><%= flat.address %> <i class="fa-solid fa-star"></i> <strong><%= flat.average_rating.round(2) %></strong></p>
           <% end %>
         </li>
       <% end %>
