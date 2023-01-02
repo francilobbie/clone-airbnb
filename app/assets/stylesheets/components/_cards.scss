@@ -1,17 +1,9 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 305px;
   color: white;
-  font-size: 16px;
-  // font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  text-align: center;
+  border-radius: 10px;
   padding-top: 20px;
 }
 
@@ -21,6 +13,43 @@
   p {
     color: black;
   }
+  h5 {
+    color: black;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.flat-info {
+  margin-top: 15px;
+}
+
+
+.wrapper {
+  position: relative;
+}
+
+.ma-li {
+  width: auto;
+}
+
+.favorite-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.heart {
+  height: 28px;
+  color: white;
+  // fill: ;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
 }
 
 
@@ -34,7 +63,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 22px;
   list-style-type: none;
 }
 
