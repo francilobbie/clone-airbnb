@@ -1,0 +1,24 @@
+.top_flat_infos_flex {
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
+}
+
+.review {
+  border-bottom: solid 1px grey;
+  padding: 10px;
+}
+
+.reviews {
+  margin: 20px 0;
+}
+
+.flat__show__images {
+  margin: 3em 2em;
+  img {
+    display: flex;
+    width: 36em;
+    height: 36em;
+    object-fit: cover;
+  }
+}

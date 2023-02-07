@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_073458) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_07_212912) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,12 +44,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_073458) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "title"
-    t.date "date", null: false
     t.bigint "flat_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["flat_id", "user_id", "date"], name: "index_bookings_on_flat_id_and_user_id_and_date", unique: true
+    t.date "start_date"
+    t.date "end_date"
     t.index ["flat_id"], name: "index_bookings_on_flat_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -96,7 +96,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_073458) do
     t.string "reviewable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -122,4 +124,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_073458) do
   add_foreign_key "messages", "bookings"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "users"
 end
