@@ -4,7 +4,7 @@
       <h1><%= @flat.title %></h1>
     </div>
     <div class="flat__show__top__rating">
-      <p><span><i class="fa-solid fa-star"></i> <%= @flat.average_rating.round(2) %></span> ● <span><%= @flat.reviews.count %> Commentaires</span> ● <span><%= @flat.address %></span></p>
+      <p><span><i class="fa-solid fa-star"></i> <%= @flat.average_rating.round(2) %></span> ● <span id="flat_show_undeline"><%= @flat.reviews.count %> Commentaires</span> ● <span id="flat_show_undeline"><%= @flat.address_by_coordinates %></span></p>
     </div>
     <div class="flat__show__images">
         <% if @flat.photo.key? %>
@@ -25,7 +25,8 @@
       </div>
         <div class="flat__booking">
           <div class="flat__booking__price">
-            <p><%= humanized_money_with_symbol(@flat.price) %> par nuit</p>
+            <h4>Ajouter des dates pour voir le prix</h4>
+            <p><span><i class="fa-solid fa-star"></i> <%= @flat.average_rating.round(2) %></span> ● <span id="flat_show_undeline"><%= @flat.reviews.count %> Commentaires</span></p>
           </div>
           <div class="flat__booking__dates">
             <%# <%= render 'form', @flat.flat__booking %>

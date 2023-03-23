@@ -7,6 +7,13 @@ class Flat < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  # reverse_geocoded_by :latitude, :longitude
+  # after_validation :reverse_geocode
+
+  def address_by_coordinates
+    # Geocoder.search([latitude, longitude]).first.address
+    "#{Geocoder.search([latitude, longitude]).first.city}, " + "#{Geocoder.search([latitude, longitude]).first.state}, " + "#{Geocoder.search([latitude, longitude]).first.country}"
+  end
 
   monetize :price_cents, allow_nil: true
 
