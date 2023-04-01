@@ -3,3 +3,5 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 import 'stylesheets/application.scss'
+// app/javascript/packs/application.js
+import 'bootstrap/js/dist/carousel';

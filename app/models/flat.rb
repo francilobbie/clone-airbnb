@@ -19,11 +19,19 @@ class Flat < ApplicationRecord
     "#{Geocoder.search([latitude, longitude]).first.city}, " + Geocoder.search([latitude, longitude]).first.country.to_s
   end
 
+  def default_photo
+    # if photos.attached?
+      photos.first
+    # else
+      # "https://res.cloudinary.com/dge8yully/image/upload/v1679510413/development/ayd41r0slcn6ev842529lhtx1h37.jpg"
+    # end
+  end
+
 
 
   monetize :price_cents, allow_nil: true
 
-  has_one_attached :photo, dependent: :destroy
+  has_many_attached :photos, dependent: :destroy
 
   # def average_rating
   #   reviews.average(:rating).to_i

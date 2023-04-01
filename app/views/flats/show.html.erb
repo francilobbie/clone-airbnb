@@ -7,8 +7,8 @@
       <p><span><i class="fa-solid fa-star"></i> <%= @flat.average_rating.round(2) %></span> ● <span id="flat_show_undeline"><%= @flat.reviews.count %> Commentaires</span> ● <span id="flat_show_undeline"><%= @flat.address_by_coordinates %></span></p>
     </div>
     <div class="flat__show__images">
-        <% if @flat.photo.key? %>
-          <%= cl_image_tag @flat.photo.key, height: 300, width: 400 %>
+        <%  @flat.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400 %>
         <% end %>
     </div>
     <div class="flat__show__infos">
