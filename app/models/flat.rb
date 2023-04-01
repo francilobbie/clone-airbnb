@@ -12,8 +12,14 @@ class Flat < ApplicationRecord
 
   def address_by_coordinates
     # Geocoder.search([latitude, longitude]).first.address
-    "#{Geocoder.search([latitude, longitude]).first.city}, " + "#{Geocoder.search([latitude, longitude]).first.state}, " + "#{Geocoder.search([latitude, longitude]).first.country}"
+    "#{Geocoder.search([latitude, longitude]).first.city}, " + "#{Geocoder.search([latitude, longitude]).first.state}, " + Geocoder.search([latitude, longitude]).first.country.to_s
   end
+
+  def address_by_coordinates_for_index
+    "#{Geocoder.search([latitude, longitude]).first.city}, " + Geocoder.search([latitude, longitude]).first.country.to_s
+  end
+
+
 
   monetize :price_cents, allow_nil: true
 

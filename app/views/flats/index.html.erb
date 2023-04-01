@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>All flats</h1>
-  <div>
+  <%# <h1>All flats</h1> %>
+  <div class="index_margin_top">
     <ul class="cards">
       <% @flats.each do |flat| %>
         <li class="ma-li  ">
@@ -15,11 +15,11 @@
                 </div>
                   <div class="flat-info">
                     <div class="rating">
-                      <h5><%= flat.title%></h5>
-                      <p><i class="fa-solid fa-star"></i> <strong><%= flat.average_rating.round(2) %></strong></p>
+                      <h5><%= flat.address_by_coordinates_for_index %></h5>
+                      <p><i class="fa-solid fa-star"></i> <%= flat.average_rating.round(2) %></p>
                     </div>
                       <p>13-28 janv.</p>
-                      <p><strong><%= humanized_money(flat.price) %> €</strong> par nuit</p>
+                      <p><strong id="price_index"><%= humanized_money(flat.price) %> €</strong> par nuit</p>
                   </div>
                 <% end %>
             </div>

@@ -1,10 +1,14 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 305px;
+  height: 299px;
   color: white;
   border-radius: 10px;
   padding-top: 20px;
+  h5 {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
 }
 
 .flat-card {
@@ -50,7 +54,7 @@
 .rating {
   display: flex;
   justify-content: space-between;
-  height: 26px;
+  height: 25px;
 }
 
 
@@ -63,7 +67,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 22px;
   list-style-type: none;
 }
@@ -99,6 +103,14 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+}
+
+.fa-solid {
+  font-size: 13px;
+}
+
+#price_index {
+  font-weight: 600;
 }
