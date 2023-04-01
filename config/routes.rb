@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   # end
   resources :users, only: :show
   resources :flats, only: :destroy
+  resources :bookings, only: :destroy
+  resources :reviews, only: :destroy
+  namespace :api do
+    resources :favorites, only: [:create, :destroy]
+  end
 end

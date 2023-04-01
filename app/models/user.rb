@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :flats, dependent: :destroy
   has_many :flats, through: :bookings
   has_many :reviews, through: :flats, dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_flats, through: :favorites, source: :flat
 end
