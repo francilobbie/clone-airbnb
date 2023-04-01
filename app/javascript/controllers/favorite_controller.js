@@ -7,12 +7,6 @@ export default class extends Controller {
   }
 
   favorite() {
-
-    if (this.element.dataset.userLoggedIn === "false") {
-      alert("You must be logged in to favorite a post.");
-      return;
-    }
-
     if (this.element.dataset.favorited === "true") {
       this.element.dataset.favorited = 'false'
       this.element.setAttribute("fill", "rgba(0, 0, 0, 0.5)");
