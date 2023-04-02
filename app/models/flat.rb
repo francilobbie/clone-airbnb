@@ -22,10 +22,15 @@ class Flat < ApplicationRecord
 
 
   monetize :price_cents, allow_nil: true
+  # monetize :nightly_price_cents, allow_nil: true
+  has_many :photos, dependent: :destroy
 
   has_many_attached :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos, allow_destroy: true
+
+
   has_many :favorites, dependent: :destroy
-  has_many :favorited_users, through: :favorites, source: :user
+  accepts_nested_attributes_for :photos_attachments, allow_destroy: true
 
   # def average_rating
   #   reviews.average(:rating).to_i

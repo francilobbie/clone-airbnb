@@ -35,14 +35,25 @@ class FlatsController < ApplicationController
 
   def update
     @flat = Flat.find(params[:id])
-    @flat.update(flat_params)
+    if @flat.update(flat_params)
+      flash[:success] = "L'appartement a été édité avec succès."
+      redirect_to flat_path(@flat)
+    else
+      render :edit
+    end
+  end
 
-    redirect_to flat_path(@flat)
+  def delete_photo
+    @flat = Flat.find(params[:id])
+    @photo = @flat.photos.find(params[:photo_id])
+    @photo.purge_later
+    redirect_back(fallback_location: edit_flat_path(@flat))
   end
 
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :address, :price, photos: [])
+    params.require(:flat).permit(:title, :description, :address, :nightly_price_cents, photos: [])
   end
+
 end

@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   namespace :api do
     resources :favorites, only: [:create, :destroy]
   end
+  resources :flats do
+    resources :photos, only: [:create, :destroy]
+  end
+  get '/flats/:id/delete_photo', to: 'flats#delete_photo', as: 'delete_flat_photo'
+  patch 'flats/:id/delete_photo', to: 'flats#delete_photo', as: 'delete_photo_flat'
+
 end

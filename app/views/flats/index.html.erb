@@ -4,6 +4,8 @@
       <% @flats.each do |flat| %>
         <li class="ma-li">
           <div class="wrapper">
+            <div class="flat-card">
+            <%= link_to flat_path(flat) do %>
             <div id="carousel-<%= flat.id %>" class="carousel slide">
               <div class="carousel-inner">
                 <% flat.photos.each_with_index do |photo, index| %>
@@ -29,6 +31,8 @@
               </div>
               <p>13-28 janv.</p>
               <p><strong id="price_index"><%= humanized_money(flat.price) %> €</strong> par nuit</p>
+            </div>
+            <% end %>
             </div>
             <div tabindex="0" role="button" class="favorite-link">
               <svg xmlns="http://www.w3.org/2000/svg" fill="rgba(0, 0, 0, 0.5)" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"  data-controller="favorite" data-action="click->favorite#favorite" data-favorited="false"  class="w-6 h-6 heart">

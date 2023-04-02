@@ -7,6 +7,19 @@
     <%= f.input :description, label: 'Une description' %>
     <%= f.input :address, label: 'Addresse' %>
     <%= f.input :price, label: 'Prix pour une nuit' %>
+
+    <% if @flat.photos.attached? %>
+      <h4>Images déjà téléchargées:</h4>
+      <ul class="flat__thumbnail">
+        <% @flat.photos.each do |photo| %>
+          <li>
+            <%= cl_image_tag(photo.key) %>
+            <%= link_to "Supprimer", delete_photo_flat_path(@flat, photo_id: photo.id), method: :patch, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger" %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, "Editer cette appartement", class: "btn btn-primary" %>
     <%= link_to "Retour", flat_path(@flat), class: "btn btn-warning" %>

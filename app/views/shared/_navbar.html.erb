@@ -1,38 +1,37 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <a href="<%= root_path %>" class="navbar-brand">
       <%= image_tag "https://res.cloudinary.com/dge8yully/image/upload/v1669792976/development/airbnb-logo-png-transparent-background_uwf7hj.png" %>
-    <% end %>
+    </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
+      <span class="visually-hidden">Toggle navigation</span>
     </button>
-    <div class="search">
-      <%= form_with url: @flats_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <form action="<%= @flats_path %>" method="get" class="search-form d-flex">
+        <label for="search-input" class="visually-hidden">Search</label>
+        <input type="search" name="query" id="search-input" class="form-control me-2" placeholder="Search" value="<%= params[:query] %>" aria-label="Search">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Ajouter un appartement", new_flat_path, class: "nav-link" %>
+            <%= link_to "Add an apartment", new_flat_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Profil", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+            <%= link_to current_user, class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            <% end %>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Profile", user_path(current_user), class: "dropdown-item" %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item", rel: "nofollow" %></li>
+            </ul>
           </li>
         <% else %>
           <li class="nav-item">
@@ -42,4 +41,4 @@
       </ul>
     </div>
   </div>
-</div>
+</nav>

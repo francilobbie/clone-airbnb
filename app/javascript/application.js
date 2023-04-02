@@ -1,5 +1,7 @@
-// Entry point for the build script in your package.json
-import "@hotwired/turbo-rails"
-import "./controllers"
-import "bootstrap"
-import 'bootstrap/js/dist/carousel';
+// // Entry point for the build script in your package.json
+// import "@hotwired/turbo-rails"
+// import "./controllers"
+// import "bootstrap"
+// // import '../stylesheets/application.scss';
+// // import '../stylesheets/application.scss';
+// import "../stylesheets/application.scss";

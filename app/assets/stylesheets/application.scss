@@ -4,11 +4,23 @@
 @import "config/bootstrap_variables";
 
 // External libraries
+
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
 
 // Your CSS partials
-@import "components/index";
-@import "pages/index";
+@import "components";
+@import "pages";
+
+// You probably already include the core styles
+// @import "./fontawesome/scss/fontawesome.scss";
+
+// For Duotones you need both of these files
+// @import "./fontawesome/scss/duotone.scss";
+// @import "./fontawesome/scss/_duotone-icons.scss";
+
+// // You can include all the other styles the same as before
+// @import "./fontawesome/scss/solid.scss";
+// @import "./fontawesome/scss/brands.scss";
