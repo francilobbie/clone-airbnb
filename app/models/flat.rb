@@ -23,7 +23,9 @@ class Flat < ApplicationRecord
 
   monetize :price_cents, allow_nil: true
 
-  has_one_attached :photo, dependent: :destroy
+  has_many_attached :photos, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
 
   # def average_rating
   #   reviews.average(:rating).to_i

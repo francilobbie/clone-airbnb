@@ -7,7 +7,7 @@
     <%= f.input :description, label: 'Une description' %>
     <%= f.input :address, label: 'Addresse' %>
     <%= f.input :price, label: 'Prix pour une nuit' %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, "Editer cette appartement", class: "btn btn-primary" %>
     <%= link_to "Retour", flat_path(@flat), class: "btn btn-warning" %>
   <% end %>

@@ -7,15 +7,15 @@
       <p><span><i class="fa-solid fa-star"></i> <%= @flat.average_rating.round(2) %></span> ● <span id="flat_show_undeline"><%= @flat.reviews.count %> Commentaires</span> ● <span id="flat_show_undeline"><%= @flat.address_by_coordinates %></span></p>
     </div>
     <div class="flat__show__images">
-        <% if @flat.photo.key? %>
-          <%= cl_image_tag @flat.photo.key, height: 300, width: 400 %>
+        <%  @flat.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400 %>
         <% end %>
     </div>
     <div class="flat__show__infos">
       <div class="top_flat_infos_flex">
       <div class="flat_flex_top">
         <div class="flat__owner__infos">
-          <h3><%= @flat.title %> · Chez <%= @flat.user.first_name %></h3>
+          <h3><%= @flat.title %> · Chez <span class="text-orange-500"><%= @flat.user.first_name %></span></h3>
         <div class="flat_description">
           <p><%= @flat.description %></p>
         </div>
