@@ -19,6 +19,8 @@
     "build": "webpack --config webpack.config.js"
   },
   "devDependencies": {
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2",
     "webpack-dev-server": "^3"
   }
 }
