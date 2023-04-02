@@ -14,14 +14,14 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "tailwind_custom.css",
+      filename: "my_unique_tailwind_custom.css",
     }),
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
     ],
   },
