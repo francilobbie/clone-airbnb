@@ -1,11 +1,11 @@
-const path    = require("path")
-const webpack = require("webpack")
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   devtool: "source-map",
   entry: {
-    application: "./app/javascript/application.js"
+    application: "./app/javascript/application.js",
   },
   output: {
     filename: "[name].js",
@@ -13,8 +13,23 @@ module.exports = {
     path: path.resolve(__dirname, "app/assets/builds"),
   },
   plugins: [
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
-    })
-  ]
-}
+    new MiniCssExtractPlugin({
+      filename: "tailwind_custom.css",
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+    ],
+  },
+  resolve: {
+    alias: {
+      stylesheets: path.resolve(__dirname, "app/assets/stylesheets/"),
+      javascript: path.resolve(__dirname, "app/javascript/"),
+      images: path.resolve(__dirname, "app/assets/images/"),
+    },
+  },
+};
