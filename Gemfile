@@ -54,8 +54,6 @@ gem "pg_search"
 gem 'money-rails', '~>1.12'
 gem "cloudinary"
 gem 'faker'
-gem 'webpacker'
-
 
 
 

@@ -5,22 +5,23 @@
     "@hotwired/stimulus": "^3.2.0",
     "@hotwired/turbo-rails": "^7.2.4",
     "@popperjs/core": "^2.11.6",
-    "@rails/webpacker": "5.4.4",
-    "autoprefixer": "^10.4.14",
     "bootstrap": "^5.2.3",
+    "css-loader": "^6.7.3",
+    "dart-sass": "^1.25.0",
     "flatpickr": "^4.6.13",
     "gmaps": "^0.4.25",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.1",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+<<<<<<< HEAD
   },
   "devDependencies": {
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2",
     "webpack-dev-server": "^3"
+=======
+>>>>>>> a9620b218a544c3db753a2e68fc7ce4e7fe18a4c
   }
 }
